@@ -1,6 +1,6 @@
 {
   "name": "kiss-include",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Include everywhere in your chrome extension to patch",
   "author": "Devin Rhode <devinrhode2@gmail.com>",
   "main": "kiss-include.js",
