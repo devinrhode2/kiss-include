@@ -11,7 +11,7 @@
 window.kissInclude = function kissInclude(_kmk){
 'use strict';//steppin it up!
 //a nicer wrapper, instead of _kmq.push(['asdf', 'adf']) it's just kiss('asdf', 'adf')
-window.kmpush = function kmpush(){
+window.event = function event(){
   if (typeof _kmq === 'undefined') {
     window._kmq = [];
   }

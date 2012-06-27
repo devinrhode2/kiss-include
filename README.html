@@ -69,3 +69,6 @@ Download the patch script right from this repository, or do <code>npm install ki
 
 <p>If you include kiss-include.js after your code, you need to use asynchronous initialization. If you include it before your code, you'll need to use direct initialization.</p>
 
+<strong></strong>
+<p>This also includes a convenience <code>event</code> method on <code>_kmq.push</code>. Instead of <code>_kmq.push(['record', 'something']);</code> use: <code>event('record', 'something');</code>, but if you want to just record something, one argument defaults to 'record' so you can go: <code>event('something');</code> </p>
+
