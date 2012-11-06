@@ -8,9 +8,11 @@
  * Send questions/problems/critiques on code to: DevinRhode2@gmail.com (put "kiss-include.js" in the title)
  */
 
+// Assign to window because this is a library.
 window.kissInclude = function kissInclude(_kmk) {
-  'use strict';//steppin it up!
-  //a nicer wrapper, instead of _kmq.push(['asdf', 'adf']) it's just kiss('asdf', 'adf')
+  'use strict';
+  
+  // A nicer wrapper, instead of _kmq.push(['asdf', 'adf']) it's just event('asdf', 'adf')
   window.event = function event() {
     if (typeof _kmq === 'undefined') {
       window._kmq = [];
@@ -85,7 +87,7 @@ window.kissInclude = function kissInclude(_kmk) {
     
     //background page or popup, inject the scripts normally!
     window._kms = function _kms(u) {
-      setTimeout(function() {
+      setTimeout(function slightTimout() {
         var d = document, f = d.head,
         s = d.createElement('script');
         s.type = 'text/javascript'; s.async = true; s.src = u;
@@ -97,7 +99,7 @@ window.kissInclude = function kissInclude(_kmk) {
     
     chrome.extension.onConnect.addListener(function KissIncludeOnConnect(port) {
       if (port.name === KissIncludePortName) {
-        port.onMessage.addListener(function(msg) {
+        port.onMessage.addListener(function portOnmessage(msg) {
           if (msg.bufferedPush) {
             _kmq.push(msg.bufferedPush);
           } else {
@@ -114,11 +116,8 @@ window.kissInclude = function kissInclude(_kmk) {
     var KissIncludePort = chrome.extension.connect({name: KissIncludePortName});
     window._kmq.push = function _kmqPush(pushedArray) {
       if (arguments.length !== 1) {
-        var message = 'too many arguments, only one is expected.';
-        console.error(message + 'arguments:\n', arguments);
-        alert(message);
-        throw 'exited on: ' + message;
-      }			
+        fail('too many arguments, only one is expected. arguments:' + JSON.stringify(arguments));
+      }
       if (typeof pushedArray === 'function') {
         message = '_kmq.push doesnt accept a function in content scripts. This eliminates unnecessary complexity.';
         console.error(message, pushedArray);
@@ -128,17 +127,15 @@ window.kissInclude = function kissInclude(_kmk) {
       }
       KissIncludePort.postMessage({bufferedPush: pushedArray});
     };
-    					
+    
     //re-push events
     _kmq.forEach(function kmqForEach(event) {
       _kmq.push(event);
     });
   }
-  					
+  
 }; // End window.kissInclude
 
 if (typeof _kmk !== 'undefined') {
   kissInclude(_kmk);
-} else {
-  console.log('Please define _kmk in the scope of kiss-include.js');
 }
