@@ -19,10 +19,10 @@ Download the patch script right from this repository, or do <code>npm install de
     <p>
       Setup this code, and being 
       <code>push</code>'ing to <code>_kmq:</code>
-    </p><pre><code>  if (typeof _kmq === 'undefined') {
-    window._kmq = [];
-  }
-  window._kmk = 'c168ad9f6287ggbcfe92a883fc3c8c0f904e7972';</code></pre>
+    </p><pre><code>if (typeof _kmq === 'undefined') {
+  window._kmq = [];
+}
+window._kmk = 'c168ad9f6287ggbcfe92a883fc3c8c0f904e7972';</code></pre>
     <p>
       At some later point, be sure to include kiss-include.js.
       It will detect your _kmk id, and set itself up.
@@ -39,7 +39,7 @@ Download the patch script right from this repository, or do <code>npm install de
       As an extension, you might want to manually
       specify a domain like so:
     </p>
-    <pre><code>  window.KM_COOKIE_DOMAIN = 'www.mydomain.com';</code></pre>
+    <pre><code>window.KM_COOKIE_DOMAIN = 'www.mydomain.com';</code></pre>
     <p>This code needs to be placed before the library is initialized.</p>  
   </li>
 </ul>    
@@ -70,6 +70,9 @@ Download the patch script right from this repository, or do <code>npm install de
 
 <p>If you include kiss-include.js after your code, you need to use asynchronous initialization. If you include it before your code, you'll need to use direct initialization.</p>
 
-<strong></strong>
 <p>This also includes a convenience <code>event</code> method on <code>_kmq.push</code>. Instead of <code>_kmq.push(['record', 'something']);</code> use: <code>event('record', 'something');</code>, but if you want to just record something, one argument defaults to 'record' so you can go: <code>event('something');</code> </p>
 
+### Add as npm dependency
+
+Plain `npm install` and `npm update` won't work with kiss-include unless you add `"kiss-include": "git://github.com/devinrhode2/kiss-include.git" to "dependencies"` in your package.json.
+You can always directly do `npm install devinrhode2/kiss-include` and `npm update devinrhode2/kiss-include`
