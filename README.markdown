@@ -1,4 +1,4 @@
-<h1>KissMetrics in Chrome Extensions wi/kiss-include.js</h1>
+<h1>KissMetrics in Chrome Extensions w/kiss-include.js</h1>
 
 <p>To use KissMetrics in Chrome Extensions, we made a script that magically patches the JavaScript api for use everywhere within Chrome Extensions. You simply include it in your background page and content scripts, and call <code>_kmq.push</code> like normal.</p>
 
