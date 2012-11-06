@@ -2,7 +2,7 @@
 
 <p>To use KissMetrics in Chrome Extensions, we made a script that magically patches the JavaScript api for use everywhere within Chrome Extensions. You simply include it in your background page and content scripts, and call <code>_kmq.push</code> like normal.</p>
 
-Download the patch script right from this repository, or do <code>npm install kiss-include</code>
+Download the patch script right from this repository, or do <code>npm install devinrhode2/kiss-include</code>
 
 <h3>Important points</h3>
 <ul>

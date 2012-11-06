@@ -7,8 +7,5 @@
   "preferGlobal": false,
   "dependencies": {},
   "devDependencies": {},
-  "optionalDependencies": {},
-  "engines": {
-    "node": "*"
-  }
+  "optionalDependencies": {}
 }
