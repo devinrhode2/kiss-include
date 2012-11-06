@@ -19,13 +19,10 @@ Download the patch script right from this repository, or do <code>npm install de
     <p>
       Setup this code, and being 
       <code>push</code>'ing to <code>_kmq:</code>
-    </p>
-```javascript
-if (typeof _kmq === 'undefined') {
+    </p><pre><code>if (typeof _kmq === 'undefined') {
   window._kmq = [];
 }
-window._kmk = 'c168ad9f6287ggbcfe92a883fc3c8c0f904e7972';
-```
+window._kmk = 'c168ad9f6287ggbcfe92a883fc3c8c0f904e7972';</code></pre>
     <p>
       At some later point, be sure to include kiss-include.js.
       It will detect your _kmk id, and set itself up.
@@ -34,9 +31,7 @@ window._kmk = 'c168ad9f6287ggbcfe92a883fc3c8c0f904e7972';
   <li>
     <h4>Directly</h4>
     <p>Include kiss-include.js before this code in your extension, and then call <code>kissInclude</code> with your <code>_kmk</code> account id:</p>
-```javascript
-kissInclude('ioheiorfhaksjnaoiewhoasdhjf');
-```
+    <pre><code>kissInclude('ioheiorfhaksjnaoiewhoasdhjf');</code></pre>
   </li>
   <li>
     <h4>Setting a domain</h4>
@@ -44,9 +39,7 @@ kissInclude('ioheiorfhaksjnaoiewhoasdhjf');
       As an extension, you might want to manually
       specify a domain like so:
     </p>
-```javascript
-window.KM_COOKIE_DOMAIN = 'www.mydomain.com';
-```
+    <pre><code>window.KM_COOKIE_DOMAIN = 'www.mydomain.com';</code></pre>
     <p>This code needs to be placed before the library is initialized.</p>  
   </li>
 </ul>    
