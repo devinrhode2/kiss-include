@@ -31,7 +31,7 @@ window._kmk = 'c168ad9f6287ggbcfe92a883fc3c8c0f904e7972';</code></pre>
   <li>
     <h4>Directly</h4>
     <p>Include kiss-include.js before this code in your extension, and then call <code>kissInclude</code> with your <code>_kmk</code> account id:</p>
-    <pre><code>  kissInclude('ioheiorfhaksjnaoiewhoasdhjf');</code></pre>
+    <pre><code>kissInclude('ioheiorfhaksjnaoiewhoasdhjf');</code></pre>
   </li>
   <li>
     <h4>Setting a domain</h4>
