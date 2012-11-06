@@ -50,22 +50,23 @@ Download the patch script right from this repository, or do <code>npm install de
 <p>Wherever you include the script, it detects it's environment and responds accordingly. This script alleviates the headache associated with chrome's isolated world's - you just use the JS API as defined in the docs.</p>
 <strong>Including in content scripts</strong>
 <p>To work in content scripts, you need to make sure it's also included in the background page</p>
-<pre><code>  //in you manifest.json:
-  "content_scripts": [
-     {
-        "js": [ "YourScripts.js", "kiss-include.js" ],
-        "matches": [ "&lt;all_urls&gt;" ],
-        "run_at": "document_start"
-     },
-  ],
-  </code></pre>
+```javascript
+//in you manifest.json:
+"content_scripts": [
+   {
+      "js": [ "YourScripts.js", "kiss-include.js" ],
+      "matches": [ "&lt;all_urls&gt;" ],
+      "run_at": "document_start"
+   },
+],
+```
 
 
 <strong>Including in background page:</strong>
-<pre><code>  //in your background.html:
-  &lt;script src="kiss-include.js"&gt;&lt;/script&gt;
-  </code>
-</pre>
+```html
+//in your background.html:
+&lt;script src="kiss-include.js"&gt;&lt;/script&gt;
+```
 
 <p>If you include kiss-include.js after your code, you need to use asynchronous initialization. If you include it before your code, you'll need to use direct initialization.</p>
 
