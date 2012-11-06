@@ -76,8 +76,6 @@ window.kissInclude = function kissInclude(_kmk) {
                  ' like so: window.KM_COOKIE_DOMAIN = \'extension.domain.com\';');
   }
   
-  var message = '';
-  
   if (typeof _kmq === 'undefined') {
     window._kmq = []; //Note on global declarations: shit hit the fan without _km<vars> being global.
   }
@@ -103,9 +101,7 @@ window.kissInclude = function kissInclude(_kmk) {
           if (msg.bufferedPush) {
             _kmq.push(msg.bufferedPush);
           } else {
-            message = 'unhandled message to kiss-include.js background receiver: ';
-            alert(message + JSON.stringify(msg));
-            console.error(message, msg);
+            fail('unhandled message to kiss-include.js background receiver: ', msg);
           }
         });
       }
@@ -119,9 +115,10 @@ window.kissInclude = function kissInclude(_kmk) {
         fail('too many arguments, only one is expected. arguments:' + JSON.stringify(arguments));
       }
       if (typeof pushedArray === 'function') {
-        message = '_kmq.push doesnt accept a function in content scripts. This eliminates unnecessary complexity.';
-        console.error(message, pushedArray);
-        return message;
+        fail(
+          '_kmq.push doesnt accept a function in content scripts. This eliminates unnecessary complexity.'
+          , pushedArray
+        );
       } else if (typeof pushedArray !== 'object') {
         fail('_kmq.push only accepts an object/array argument');
       }
