@@ -23,14 +23,49 @@ window.kissInclude = function kissInclude(_kmk) {
     }
   };
   
-  var fail = function fail(message) {
-    alert(message);
-    throw message;
+  /**
+   * fail
+   * alerts and throws message, may also output additonal parameters, like objects.
+   */
+  var fail = function fail(message, optionalObjects) {
+    
+    optionalObjects = [].slice.call(arguments);
+    
+    // First arg should be a string, which shouldn't belong in optionalObjects
+    if (typeof message === 'string') {
+      
+      optionalObjects.shift();
+      
+    } else {
+      message = 'First arg to fail should be a string message, even if its an empty string';
+    }
+    
+    if (optionalObjects && optionalObjects.length > 0) {
+      
+      // For alert
+      (function newScope(){ //So I can re-use the message variable non-destructively
+        var message = message + '\n';
+        optionalObjects.forEach(function forEachObject(item){
+          message += '\n' + typeof item + ': ' + JSON.stringify(item);
+        });
+        alert(message);
+      }());
+      
+      // prefix objects with message
+      optionalObjects.unshift(message);
+      
+      // Do apply instead of optionalObjects so we get a clean message prefix output
+      console.error.apply(console, optionalObjects);
+    } else {
+      alert(message);
+    }
+    throw new Error(message);
   };
   
   if (typeof _kmk === 'undefined') {
-    fail('Please pass in a kiss metrics _kmk id. You can find this at http://kissmetrics.com/settings just below the fold! \n\n'+
-         'Do this like: kissInclude(\'ioheiorfhaksjnaoiewhoasdhjf\');');
+    fail('Please pass in a kiss metrics _kmk id.'+
+         'You can find this at http://kissmetrics.com/settings just below the fold! \n\n'+
+         'Do this like: kissInclude(\'asdeiorfhaksjnaoiewhoasdhjf\');');
   } else {
     window._kmk = _kmk;//make sure it's global.
   }
