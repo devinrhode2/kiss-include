@@ -65,7 +65,7 @@ Download the patch script right from this repository, or do <code>npm install de
 <strong>Including in background page:</strong>
 ```html
 //in your background.html:
-&lt;script src="kiss-include.js"&gt;&lt;/script&gt;
+<script src="kiss-include.js"></script>;
 ```
 
 <p>If you include kiss-include.js after your code, you need to use asynchronous initialization. If you include it before your code, you'll need to use direct initialization.</p>
