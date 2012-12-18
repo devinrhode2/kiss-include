@@ -95,6 +95,16 @@ window.kissInclude = function kissInclude(_kmk) {
     _kms('https://i.kissmetrics.com/i.js');
     _kms('https://doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
     
+    // Because our document.location has a scheme of 'chrome:', masquerade as an https URL to force KM to send events via SSL
+    var forceSSL = function() {
+      if (window.KM && window.KM.u) {
+        KM.u=function(){return "https://"+document.location+""}
+      } else {
+        setTimeout(forceSSL, 1);
+      }
+    }
+    forceSSL();
+
     chrome.extension.onConnect.addListener(function KissIncludeOnConnect(port) {
       if (port.name === KissIncludePortName) {
         port.onMessage.addListener(function portOnmessage(msg) {
