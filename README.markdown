@@ -81,7 +81,7 @@ You can always directly do `npm install devinrhode2/kiss-include` and `npm updat
 
 (The MIT License)
 
-Copyright &copy; 2012 [Lance Pollard](http://twitter.com/viatropos) &lt;lancejpollard@gmail.com&gt;
+Copyright &copy; 2012 [Devin Rhode](http://twitter.com/DevinRhode2) &lt;DevinRhode2@Gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
