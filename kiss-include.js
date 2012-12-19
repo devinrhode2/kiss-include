@@ -1,5 +1,7 @@
-/* kiss-include.js - this transparently patchs the KissMetrics javascript api to work perfectly everywhere in chrome extensions. 
- * YOU NEED TO INCLUDE IT EVERYWHERE*
+/* kiss-include.js - this transparently patches the KissMetrics javascript api to work perfectly everywhere in chrome extensions. 
+ * YOU NEED TO INCLUDE IT EVERYWHERE (background page, content scripts, popups)*
+ *
+ * In your background page, you must either set window._kmk to your KISSmetrics key before sourcing kiss-include.js, or call kissInclude('your_km_key') afterward.
  * 
  * See the docs online or in the repo for extra details on usage.
  * 
