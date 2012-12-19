@@ -147,9 +147,6 @@
   /* Library Initialization */
 
   var initKissInclude = function initKissInclude() {
-    if (!chrome.extension) {
-      fail("kissInclude only works inside chrome extensions!");
-    }
 
     if (typeof _kmq === 'undefined') {
       window._kmq = []; //Note on global declarations: shit hit the fan without _km<vars> being global.
@@ -160,13 +157,14 @@
     if (!window[KissIncludeEventHelper]) {
       window[KissIncludeEventHelper] = event;
     }
-
-    if (chrome.browserAction && window === chrome.extension.getBackgroundPage()) {
-      // background page acts as a server
-      initServer();
-    } else {
-      // content scripts and popups act as clients
-      initClient();
+    if (chrome.extension) {
+      if (chrome.browserAction && window === chrome.extension.getBackgroundPage()) {
+        // background page acts as a server
+        initServer();
+      } else {
+        // content scripts and popups act as clients
+        initClient();
+      }
     }
   };
 
