@@ -7,6 +7,10 @@ Download the patch script right from this repository, or do <code>npm install de
 <h3>Important points</h3>
 <ul>
   <li>
+    There is a good fork of this you should probably use instead,
+    it's more sophisticated and handles things I didn't initially conceive:
+    https://github.com/jmileham/kiss-include/blob/3232d7182057f988e522ad0dfe452362b15e3875/kiss-include.js
+  <li>
     To use in <strong>content scripts</strong>, you will also 
     need to include it in the background page.
   </li>
